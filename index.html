@@ -63,7 +63,7 @@ async function addMemory(){
     .from('memorias')
     .insert([{
       texto: t || x,
-      arquivo_url: x || null
+      arquivo_url: null
     }])
     .select();
 
@@ -76,20 +76,31 @@ async function addMemory(){
   document.getElementById('mx').value='';
 
   alert('Memória salva com sucesso!');
+
+  renderMemories();
 }
 
-function renderMemories(){
-  document.getElementById('memoryList').innerHTML='';
-}
+async function renderMemories(){
+  const { data, error } = await supabaseClient
+    .from('memorias')
+    .select('*')
+    .order('id', { ascending: false });
 
-function esc(s){
-  return String(s).replace(/[&<>"']/g,c=>({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#039;'
-  }[c]));
-}
+  if(error){
+    document.getElementById('memoryList').innerHTML =
+      '<div class="empty">Erro ao carregar memórias: ' + esc(error.message) + '</div>';
+    return;
+  }
 
-</script></body></html>
+  if(!data || data.length === 0){
+    document.getElementById('memoryList').innerHTML =
+      '<div class="empty">Nenhuma memória salva ainda.</div>';
+    return;
+  }
+
+  document.getElementById('memoryList').innerHTML = data.map(m => `
+    <div class="memory">
+      <h3>${esc(m.texto || 'Memória')}</h3>
+    </div>
+  `).join('');
+}
