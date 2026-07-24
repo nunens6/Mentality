@@ -42,7 +42,14 @@
 </main>
 <script>
 const ids=['palace','rooms','editor','memories','future'];let current=null;let rooms=JSON.parse(localStorage.getItem('ment_rooms')||'{}');let memories=JSON.parse(localStorage.getItem('ment_mem')||'[]');
-function show(id,b){ids.forEach(x=>document.getElementById(x).classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');if(id==='rooms')renderRooms();if(id==='memories')renderMemories()}
+function show(id,b){
+  ids.forEach(x=>document.getElementById(x).classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));
+  if(b)b.classList.add('active');
+  if(id==='rooms')renderRooms();
+  if(id==='memories')renderMemories();
+              }
 function openRoom(name){current=rooms[name]||{name,desc:'',objects:[]};document.getElementById('name').value=current.name;document.getElementById('prompt').value=current.desc||'';document.getElementById('roomTitle').textContent=current.name;updatePreview();renderObjects();show('editor')}
 function newRoom(){let name=prompt('Nome da nova sala:');if(name){rooms[name]={name,desc:'',objects:[]};localStorage.setItem('ment_rooms',JSON.stringify(rooms));openRoom(name)}}
 function updatePreview(){let n=document.getElementById('name').value||'Sala';document.getElementById('roomTitle').textContent=n;document.getElementById('prevName').textContent=n;document.getElementById('prevDesc').textContent=document.getElementById('prompt').value||'Sua sala personalizada.'}
