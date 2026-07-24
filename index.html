@@ -76,6 +76,20 @@ async function addMemory(){
   document.getElementById('mx').value='';
 
   alert('Memória salva com sucesso!');
-function renderMemories(){document.getElementById('memoryList').innerHTML=memories.length?memories.map(m=>'<div class="memory"><h3>'+esc(m.t)+'</h3><p>'+esc(m.x)+'</p></div>').join(''):'<div class="empty">Nenhuma memória guardada.</div>'}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}renderRooms();renderMemories();
+}
+
+function renderMemories(){
+  document.getElementById('memoryList').innerHTML='';
+}
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g,c=>({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#039;'
+  }[c]));
+}
+
 </script></body></html>
