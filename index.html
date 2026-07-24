@@ -53,7 +53,29 @@ function renderObjects(){document.getElementById('objects').innerHTML=(current&&
 function removeObject(i){current.objects.splice(i,1);renderObjects()}
 function saveRoom(){let n=document.getElementById('name').value.trim()||'Sala';current.name=n;current.desc=document.getElementById('prompt').value;rooms[n]=current;localStorage.setItem('ment_rooms',JSON.stringify(rooms));alert('Sala salva no Mentelalidade.');renderRooms()}
 function renderRooms(){let keys=Object.keys(rooms);document.getElementById('roomList').innerHTML=keys.length?keys.map(k=>'<button class="room" onclick="openRoom(\''+esc(k)+'\')"><h3>'+esc(k)+'</h3><p>'+esc(rooms[k].desc||'Sala personalizada')+'</p></button>').join(''):'<div class="empty">Nenhuma sala nova criada ainda.</div>'}
-function addMemory(){let t=document.getElementById('mt').value.trim(),x=document.getElementById('mx').value.trim();if(!t||!x)return;memories.push({t,x});localStorage.setItem('ment_mem',JSON.stringify(memories));document.getElementById('mt').value='';document.getElementById('mx').value='';renderMemories()}
+async function addMemory(){
+  let t=document.getElementById('mt').value.trim();
+  let x=document.getElementById('mx').value.trim();
+
+  if(!t && !x) return;
+
+  const { data, error } = await supabaseClient
+    .from('memorias')
+    .insert([{
+      texto: t || x,
+      arquivo_url: x || null
+    }])
+    .select();
+
+  if(error){
+    alert('Erro ao salvar memória: ' + error.message);
+    return;
+  }
+
+  document.getElementById('mt').value='';
+  document.getElementById('mx').value='';
+
+  alert('Memória salva com sucesso!');
 function renderMemories(){document.getElementById('memoryList').innerHTML=memories.length?memories.map(m=>'<div class="memory"><h3>'+esc(m.t)+'</h3><p>'+esc(m.x)+'</p></div>').join(''):'<div class="empty">Nenhuma memória guardada.</div>'}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}renderRooms();renderMemories();
 </script></body></html>
