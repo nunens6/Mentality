@@ -5,13 +5,13 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-  const SUPABASE_URL = 'https://okkvwsvyfupyyzatanug.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_H5YENLKw2_8DfpOITnesrQ_SSgiudhI';
+const SUPABASE_URL = 'https://okkvwsvyfupyyzatanug.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_H5YENLKw2_8DfpOITnesrQ_SSgiudhI';
 
-  const supabaseClient = supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 </script>
 
 <meta charset="utf-8">
@@ -21,9 +21,20 @@
 <title>Mentelalidade</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#000;color:#fff;font-family:Arial,sans-serif}
-button,input,textarea{font:inherit}
+*{
+  box-sizing:border-box
+}
+
+body{
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family:Arial,sans-serif
+}
+
+button,input,textarea{
+  font:inherit
+}
 
 .top{
   position:sticky;
@@ -49,7 +60,8 @@ button,input,textarea{font:inherit}
   overflow:auto
 }
 
-.nav button,.ghost{
+.nav button,
+.ghost{
   background:none;
   border:1px solid #333;
   color:#aaa;
@@ -57,7 +69,9 @@ button,input,textarea{font:inherit}
   white-space:nowrap
 }
 
-.nav button.active,.nav button:hover,.ghost:hover{
+.nav button.active,
+.nav button:hover,
+.ghost:hover{
   border-color:#fff;
   color:#fff
 }
@@ -161,7 +175,9 @@ button,input,textarea{font:inherit}
   pointer-events:none
 }
 
-.preview h2,.preview p,.decor{
+.preview h2,
+.preview p,
+.decor{
   position:relative;
   z-index:1
 }
@@ -188,7 +204,8 @@ button,input,textarea{font:inherit}
   margin-top:14px
 }
 
-.controls input,.controls textarea{
+.controls input,
+.controls textarea{
   width:100%;
   background:#000;
   border:1px solid #444;
@@ -281,17 +298,27 @@ button,input,textarea{font:inherit}
 
 <header class="top">
 
-<div class="brand">MENTELALIDADE</div>
+<div class="brand">
+MENTELALIDADE
+</div>
 
 <nav class="nav">
 
-<button class="active" onclick="show('palace',this)">Palácio</button>
+<button class="active" onclick="show('palace',this)">
+Palácio
+</button>
 
-<button onclick="show('rooms',this)">Salas</button>
+<button onclick="show('rooms',this)">
+Salas
+</button>
 
-<button onclick="show('memories',this)">Memórias</button>
+<button onclick="show('memories',this)">
+Memórias
+</button>
 
-<button onclick="show('future',this)">Futuro</button>
+<button onclick="show('future',this)">
+Futuro
+</button>
 
 </nav>
 
@@ -301,13 +328,16 @@ button,input,textarea{font:inherit}
 
 <section id="palace" class="view active">
 
-<div class="eyebrow">SEU UNIVERSO PESSOAL</div>
+<div class="eyebrow">
+SEU UNIVERSO PESSOAL
+</div>
 
-<h1 class="title">Meu Palácio</h1>
+<h1 class="title">
+Meu Palácio
+</h1>
 
 <p class="sub">
-Entre nas salas, guarde suas histórias e construa um espaço com a sua identidade.
-Use o assistente de decoração para receber ideias a partir da descrição que você escrever.
+Entre nas salas, guarde suas histórias e construa um espaço com a sua identidade. Use o assistente de decoração para receber ideias a partir da descrição que você escrever.
 </p>
 
 <div class="rooms">
@@ -355,9 +385,13 @@ Use o assistente de decoração para receber ideias a partir da descrição que 
 
 <section id="rooms" class="view">
 
-<div class="eyebrow">ARQUITETURA</div>
+<div class="eyebrow">
+ARQUITETURA
+</div>
 
-<h1 class="title">Salas Personalizáveis</h1>
+<h1 class="title">
+Salas Personalizáveis
+</h1>
 
 <p class="sub">
 Escolha uma sala para abrir o editor.
@@ -378,13 +412,17 @@ Escolha uma sala para abrir o editor.
 EDITOR DE AMBIENTE
 </div>
 
-<h1 id="roomTitle" class="title">Sala</h1>
+<h1 id="roomTitle" class="title">
+Sala
+</h1>
 
 <div class="grid">
 
 <div class="preview">
 
-<h2 id="prevName">Sala</h2>
+<h2 id="prevName">
+Sala
+</h2>
 
 <p id="prevDesc">
 Sua sala personalizada.
@@ -404,12 +442,7 @@ Nome da sala
 
 <label>
 Como você imagina esta sala?
-
-<textarea
-id="prompt"
-placeholder="Ex.: Uma biblioteca elegante, preta e branca, com estantes altas, luz suave, fotografias antigas e uma mesa central."
-></textarea>
-
+<textarea id="prompt" placeholder="Ex.: Uma biblioteca elegante, preta e branca, com estantes altas, luz suave, fotografias antigas e uma mesa central."></textarea>
 </label>
 
 <button class="btn" onclick="decorateAI()">
@@ -417,8 +450,7 @@ placeholder="Ex.: Uma biblioteca elegante, preta e branca, com estantes altas, l
 </button>
 
 <div class="notice">
-Assistente local de ideias nesta versão.
-Para geração de imagens 3D com IA, será necessário conectar uma API por um servidor seguro.
+Assistente local de ideias nesta versão. Para geração de imagens 3D com IA, será necessário conectar uma API por um servidor seguro.
 </div>
 
 <div id="ideas" class="suggestions"></div>
@@ -445,9 +477,13 @@ SALVAR SALA
 
 <section id="memories" class="view">
 
-<div class="eyebrow">ARQUIVO</div>
+<div class="eyebrow">
+ARQUIVO
+</div>
 
-<h1 class="title">Memórias</h1>
+<h1 class="title">
+Memórias
+</h1>
 
 <div class="panel">
 
@@ -476,9 +512,13 @@ GUARDAR
 
 <section id="future" class="view">
 
-<div class="eyebrow">ALA DO FUTURO</div>
+<div class="eyebrow">
+ALA DO FUTURO
+</div>
 
-<h1 class="title">Sonhos e Possibilidades</h1>
+<h1 class="title">
+Sonhos e Possibilidades
+</h1>
 
 <p class="sub">
 Crie uma sala para cada sonho, objetivo ou versão de você que deseja construir.
@@ -487,23 +527,13 @@ Crie uma sala para cada sonho, objetivo ou versão de você que deseja construir
 <div class="rooms">
 
 <div class="room">
-
 <h3>Meu Futuro</h3>
-
-<p>
-Descreva o futuro que você quer construir e use o assistente de decoração para imaginar o ambiente.
-</p>
-
+<p>Descreva o futuro que você quer construir e use o assistente de decoração para imaginar o ambiente.</p>
 </div>
 
 <div class="room">
-
 <h3>Mapa dos Sonhos</h3>
-
-<p>
-Transforme seus objetivos em lugares dentro do palácio.
-</p>
-
+<p>Transforme seus objetivos em lugares dentro do palácio.</p>
 </div>
 
 </div>
@@ -515,54 +545,80 @@ Transforme seus objetivos em lugares dentro do palácio.
 
 <script>
 
-const ids=['palace','rooms','editor','memories','future'];
+const ids = [
+  'palace',
+  'rooms',
+  'editor',
+  'memories',
+  'future'
+];
 
-let current=null;
+let current = null;
 
-let rooms=JSON.parse(
-  localStorage.getItem('ment_rooms')||'{}'
+let rooms = JSON.parse(
+  localStorage.getItem('ment_rooms') || '{}'
 );
+
+
+/* NAVEGAÇÃO */
 
 function show(id,b){
 
-  ids.forEach(x=>{
-    document.getElementById(x).classList.remove('active');
+  ids.forEach(function(x){
+
+    const section = document.getElementById(x);
+
+    if(section){
+      section.classList.remove('active');
+    }
+
   });
 
-  document.getElementById(id).classList.add('active');
+  const target = document.getElementById(id);
 
-  document.querySelectorAll('.nav button').forEach(x=>{
-    x.classList.remove('active');
-  });
+  if(target){
+    target.classList.add('active');
+  }
+
+  document
+    .querySelectorAll('.nav button')
+    .forEach(function(button){
+      button.classList.remove('active');
+    });
 
   if(b){
     b.classList.add('active');
   }
 
-  if(id==='rooms'){
+  if(id === 'rooms'){
     renderRooms();
   }
 
-  if(id==='memories'){
+  if(id === 'memories'){
     renderMemories();
   }
 
 }
 
 
+/* ABRIR SALA */
+
 function openRoom(name){
 
-  current=rooms[name]||{
+  current = rooms[name] || {
     name:name,
     desc:'',
     objects:[]
   };
 
-  document.getElementById('name').value=current.name;
+  document.getElementById('name').value =
+    current.name;
 
-  document.getElementById('prompt').value=current.desc||'';
+  document.getElementById('prompt').value =
+    current.desc || '';
 
-  document.getElementById('roomTitle').textContent=current.name;
+  document.getElementById('roomTitle').textContent =
+    current.name;
 
   updatePreview();
 
@@ -573,13 +629,17 @@ function openRoom(name){
 }
 
 
+/* CRIAR NOVA SALA */
+
 function newRoom(){
 
-  let name=prompt('Nome da nova sala:');
+  const name = prompt(
+    'Nome da nova sala:'
+  );
 
   if(name){
 
-    rooms[name]={
+    rooms[name] = {
       name:name,
       desc:'',
       objects:[]
@@ -597,33 +657,48 @@ function newRoom(){
 }
 
 
+/* ATUALIZAR PREVIEW */
+
 function updatePreview(){
 
-  let n=document.getElementById('name').value||'Sala';
+  const n =
+    document.getElementById('name').value ||
+    'Sala';
 
-  document.getElementById('roomTitle').textContent=n;
+  document.getElementById(
+    'roomTitle'
+  ).textContent = n;
 
-  document.getElementById('prevName').textContent=n;
+  document.getElementById(
+    'prevName'
+  ).textContent = n;
 
-  document.getElementById('prevDesc').textContent=
-    document.getElementById('prompt').value||
+  document.getElementById(
+    'prevDesc'
+  ).textContent =
+    document.getElementById('prompt').value ||
     'Sua sala personalizada.';
 
 }
 
 
+/* IDEIAS DE DECORAÇÃO */
+
 function decorateAI(){
 
-  let p=document.getElementById('prompt').value.toLowerCase();
+  const p =
+    document.getElementById('prompt')
+    .value
+    .toLowerCase();
 
-  let ideas=[];
+  let ideas = [];
 
   if(
-    p.includes('infância')||
+    p.includes('infância') ||
     p.includes('infancia')
   ){
 
-    ideas=[
+    ideas = [
       'caixa de brinquedos antigos',
       'quadros com fotos de infância',
       'estante de lembranças',
@@ -631,11 +706,11 @@ function decorateAI(){
     ];
 
   }else if(
-    p.includes('biblioteca')||
+    p.includes('biblioteca') ||
     p.includes('livro')
   ){
 
-    ideas=[
+    ideas = [
       'estantes altas',
       'mesa central',
       'poltrona de leitura',
@@ -643,11 +718,11 @@ function decorateAI(){
     ];
 
   }else if(
-    p.includes('família')||
+    p.includes('família') ||
     p.includes('familia')
   ){
 
-    ideas=[
+    ideas = [
       'galeria de retratos',
       'árvore genealógica',
       'álbum de família',
@@ -655,11 +730,11 @@ function decorateAI(){
     ];
 
   }else if(
-    p.includes('jardim')||
+    p.includes('jardim') ||
     p.includes('sonho')
   ){
 
-    ideas=[
+    ideas = [
       'árvore dos sonhos',
       'banco de contemplação',
       'caminho de pedras',
@@ -668,7 +743,7 @@ function decorateAI(){
 
   }else{
 
-    ideas=[
+    ideas = [
       'quadro principal',
       'estante de memórias',
       'mesa central',
@@ -677,62 +752,108 @@ function decorateAI(){
 
   }
 
-  document.getElementById('ideas').innerHTML=
-    '<b>✨ Sugestão da IA:</b>'+
-    ideas.map(x=>
-      '<div class="suggestion" onclick="useIdea(\''+
-      x+
-      '\')">＋ '+
-      x+
-      '</div>'
-    ).join('');
+  document.getElementById('ideas').innerHTML =
+    '<b>✨ Sugestão da IA:</b>' +
+    ideas.map(function(x){
+
+      return `
+        <div
+          class="suggestion"
+          onclick="useIdea('${x}')"
+        >
+          ＋ ${x}
+        </div>
+      `;
+
+    }).join('');
 
 }
 
 
+/* USAR IDEIA */
+
 function useIdea(x){
 
-  document.getElementById('obj').value=x;
+  document.getElementById('obj').value =
+    x;
 
   addObject();
 
 }
 
 
+/* ADICIONAR OBJETO */
+
 function addObject(){
 
-  let x=document.getElementById('obj').value.trim();
+  const x =
+    document.getElementById('obj')
+    .value
+    .trim();
 
-  if(!x)return;
+  if(!x){
+    return;
+  }
 
-  current.objects=current.objects||[];
+  if(!current){
+    return;
+  }
+
+  current.objects =
+    current.objects || [];
 
   current.objects.push(x);
 
-  document.getElementById('obj').value='';
+  document.getElementById(
+    'obj'
+  ).value = '';
 
   renderObjects();
 
 }
 
 
+/* MOSTRAR OBJETOS */
+
 function renderObjects(){
 
-  document.getElementById('objects').innerHTML=
-    (current&&current.objects||[])
-    .map((x,i)=>
-      '<div class="object">'+
-      esc(x)+
-      '<br><button class="ghost" onclick="removeObject('+
-      i+
-      ')">×</button></div>'
-    )
+  const objects =
+    document.getElementById('objects');
+
+  if(!objects){
+    return;
+  }
+
+  objects.innerHTML =
+    (current && current.objects || [])
+    .map(function(x,i){
+
+      return `
+        <div class="object">
+          ${esc(x)}
+          <br>
+          <button
+            class="ghost"
+            onclick="removeObject(${i})"
+          >
+            ×
+          </button>
+        </div>
+      `;
+
+    })
     .join('');
 
 }
 
 
+/* REMOVER OBJETO */
+
 function removeObject(i){
+
+  if(!current || !current.objects){
+    return;
+  }
 
   current.objects.splice(i,1);
 
@@ -741,86 +862,145 @@ function removeObject(i){
 }
 
 
+/* SALVAR SALA */
+
 function saveRoom(){
 
-  let n=
-    document.getElementById('name').value.trim()||
-    'Sala';
+  const n =
+    document.getElementById('name')
+    .value
+    .trim() || 'Sala';
 
-  current.name=n;
+  if(!current){
+    current = {
+      name:n,
+      desc:'',
+      objects:[]
+    };
+  }
 
-  current.desc=
-    document.getElementById('prompt').value;
+  current.name = n;
 
-  rooms[n]=current;
+  current.desc =
+    document.getElementById('prompt')
+    .value;
+
+  rooms[n] = current;
 
   localStorage.setItem(
     'ment_rooms',
     JSON.stringify(rooms)
   );
 
-  alert('Sala salva no Mentelalidade.');
+  alert(
+    'Sala salva no Mentelalidade.'
+  );
 
   renderRooms();
 
 }
 
 
+/* MOSTRAR SALAS */
+
 function renderRooms(){
 
-  let keys=Object.keys(rooms);
+  const roomList =
+    document.getElementById(
+      'roomList'
+    );
 
-  document.getElementById('roomList').innerHTML=
+  if(!roomList){
+    return;
+  }
 
-    keys.length?
+  const keys =
+    Object.keys(rooms);
 
-    keys.map(k=>
-      '<button class="room" onclick="openRoom(\''+
-      esc(k)+
-      '\')">'+
-      '<h3>'+
-      esc(k)+
-      '</h3>'+
-      '<p>'+
-      esc(rooms[k].desc||'Sala personalizada')+
-      '</p></button>'
-    ).join('')
+  if(keys.length === 0){
 
-    :
+    roomList.innerHTML =
+      '<div class="empty">Nenhuma sala nova criada ainda.</div>';
 
-    '<div class="empty">Nenhuma sala nova criada ainda.</div>';
+    return;
+
+  }
+
+  roomList.innerHTML =
+    keys.map(function(k){
+
+      return `
+        <button
+          class="room"
+          onclick="openRoomByKey(${JSON.stringify(k)})"
+        >
+          <h3>${esc(k)}</h3>
+          <p>
+            ${esc(
+              rooms[k].desc ||
+              'Sala personalizada'
+            )}
+          </p>
+        </button>
+      `;
+
+    }).join('');
 
 }
 
 
+/* ABRIR SALA CRIADA */
+
+function openRoomByKey(key){
+
+  openRoom(key);
+
+}
+
+
+/* ADICIONAR MEMÓRIA NO SUPABASE */
+
 async function addMemory(){
 
-  let t=
-    document.getElementById('mt').value.trim();
+  const t =
+    document.getElementById('mt')
+    .value
+    .trim();
 
-  let x=
-    document.getElementById('mx').value.trim();
+  const x =
+    document.getElementById('mx')
+    .value
+    .trim();
 
-  if(!t && !x)return;
+  if(!t && !x){
 
+    alert(
+      'Digite uma memória antes de guardar.'
+    );
 
-  const {data,error}=
+    return;
+
+  }
+
+  const texto =
+    t && x
+      ? t + '\n\n' + x
+      : t || x;
+
+  const { error } =
     await supabaseClient
-    .from('memorias')
-    .insert([{
-
-      texto:t || x,
-
-      arquivo_url:null
-
-    }])
-    .select();
-
+      .from('memorias')
+      .insert([
+        {
+          texto:texto,
+          arquivo_url:null
+        }
+      ]);
 
   if(error){
 
     alert(
-      'Erro ao salvar memória: '+
+      'Erro ao salvar memória: ' +
       error.message
     );
 
@@ -828,97 +1008,106 @@ async function addMemory(){
 
   }
 
+  document.getElementById(
+    'mt'
+  ).value = '';
 
-  document.getElementById('mt').value='';
-
-  document.getElementById('mx').value='';
-
+  document.getElementById(
+    'mx'
+  ).value = '';
 
   alert(
     'Memória salva com sucesso!'
   );
 
-
-  renderMemories();
+  await renderMemories();
 
 }
 
+
+/* CARREGAR MEMÓRIAS DO SUPABASE */
 
 async function renderMemories(){
 
-  const {data,error}=
-    await supabaseClient
-    .from('memorias')
-    .select('*')
-    .order(
-      'id',
-      {ascending:false}
+  const memoryList =
+    document.getElementById(
+      'memoryList'
     );
 
+  if(!memoryList){
+    return;
+  }
+
+  memoryList.innerHTML =
+    '<div class="empty">Carregando memórias...</div>';
+
+  const { data, error } =
+    await supabaseClient
+      .from('memorias')
+      .select('*')
+      .order('id',{
+        ascending:false
+      });
 
   if(error){
 
-    document.getElementById('memoryList').innerHTML=
-
-      '<div class="empty">'+
-      'Erro ao carregar memórias: '+
-      esc(error.message)+
+    memoryList.innerHTML =
+      '<div class="empty">' +
+      'Erro ao carregar memórias: ' +
+      esc(error.message) +
       '</div>';
 
     return;
 
   }
 
+  if(!data || data.length === 0){
 
-  if(!data || data.length===0){
-
-    document.getElementById('memoryList').innerHTML=
-
-      '<div class="empty">'+
-      'Nenhuma memória salva ainda.'+
+    memoryList.innerHTML =
+      '<div class="empty">' +
+      'Nenhuma memória salva ainda.' +
       '</div>';
 
     return;
 
   }
 
+  memoryList.innerHTML =
+    data.map(function(m){
 
-  document.getElementById('memoryList').innerHTML=
+      return `
+        <div class="memory">
+          <h3>
+            ${esc(
+              m.texto ||
+              'Memória'
+            )}
+          </h3>
+        </div>
+      `;
 
-    data.map(m=>`
-
-      <div class="memory">
-
-        <h3>
-          ${esc(m.texto || 'Memória')}
-        </h3>
-
-      </div>
-
-    `).join('');
+    }).join('');
 
 }
 
+
+/* PROTEGER TEXTO HTML */
 
 function esc(s){
 
   return String(s).replace(
     /[&<>"']/g,
+    function(c){
 
-    c=>({
+      return {
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#039;'
+      }[c];
 
-      '&':'&amp;',
-
-      '<':'&lt;',
-
-      '>':'&gt;',
-
-      '"':'&quot;',
-
-      "'":'&#039;'
-
-    }[c])
-
+    }
   );
 
 }
@@ -926,4 +1115,4 @@ function esc(s){
 </script>
 
 </body>
-</html>
+  </html>
